@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding:  utf-8 -*-
 """
-httphq
-~~~~~~~~
+empty_server
+~~~~~~~~~~~~
 
 HTTP Request & Response service
 
-:copyright: (c) 2011 - 2013 by Alexandr Lispython (alex@obout.ru).
+:copyright: (c) 2014 by Alexandr Lispython (alex@obout.ru).
 :license: BSD, see LICENSE for more details.
 """
 
@@ -51,14 +51,14 @@ if not (is_py3 or (is_py2 and py_ver[1] >= 7)):
     install_requires.append("importlib==1.0.2")
 
 PACKAGE_DATA = []
-PROJECT = 'httphq'
+PROJECT = 'httpecho'
 for folder in ['static', 'templates']:
     for root, dirs, files in os.walk(os.path.join(PROJECT, folder)):
         for filename in files:
             PACKAGE_DATA.append("%s/%s" % (root[len(PROJECT) + 1:], filename))
 
 setup(
-    name="httphq",
+    name="httpecho",
     version=VERSION,
     description="HTTP Request & Response service",
     long_description=readme_content,
@@ -66,12 +66,12 @@ setup(
     author_email="alex@obout.ru",
     maintainer="Alexandr Lispython",
     maintainer_email="alex@obout.ru",
-    url="https://github.com/Lispython/httphq",
+    url="https://github.com/Lispython/httpecho",
     packages=find_packages(),
     package_data={'': PACKAGE_DATA},
     entry_points={
         'console_scripts': [
-            'httphq = httphq.manage:main',
+            'httpecho = httpecho.app:main',
         ]},
     install_requires=install_requires,
     tests_require=tests_require,
